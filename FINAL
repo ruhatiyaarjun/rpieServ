@@ -1,10 +1,10 @@
 HTTP Protocol
 
-We would follow the implementation of this using Microhttpd library implementation which is an already laid down open source implementation for the http protocol written in C language. Also a plugin system is a must for these kinds of softwares which should be fault tolerant hence we decide on creating a plugin system with JS as the prefered language for both writing the plugins as well as websites for the server. In order to implement the JS virtualization with our application we use duktape which is a JS library. 
+We would follow the implementation of this using Microhttpd library implementation which is an already laid down open source implementation for the http protocol. Also a plugin system is a must for these kinds of software. In order to implement the JS virtualization with our application we use duktape which is a JS library. 
 
 The flow for the lifetime of the application would be as follows:
 
-1> The server would receive a request from the client which would be following proper RFC as laid down by the W3C. The microhttpd library runs as a daemon on the server and the request is then parsed by its internal engine which comes out to us by its internal API. Its internal API provides us with a callback function method. This callback function method is responsible for handling all the HTTP request from the client all in separate threads. The parameters received by the callback function are all parsed by the internals of the microhttpd library.
+1> The server would receive a request from the client. The microhttpd library runs as a daemon on the server and the request is then parsed by its internal engine which comes out to us by its internal API. Its internal API provides us with a callback function method. This callback function method is responsible for handling all the HTTP request from the client all in separate threads.
 
 2> This step consists of the JS plugin implementation. For each thread or request a JS context will be created which would then be responsible for proper handling of the http request that originated from the client.
 
@@ -13,13 +13,9 @@ The flow for the lifetime of the application would be as follows:
 
 FTP protocol
 
-FTP or better known as file transfer protocol is very popular for hosting files on a server. We will be coding this project on python because of lack of implementation for this protocol in C++. The module that we will be using for this library is pyftpdlib which is a python abstraction around the FTP server.
-
-Modules
-
 Being in python this is very simple to implement and contains of very small part of codes being written. The following steps are as the program will react to
 
-1> Add all users along with permissions to where there accesible to .
+1> Add all users along with permissions to where there accessible to .
 
 2> Add directory for anonymous logins.
 
@@ -28,9 +24,7 @@ Being in python this is very simple to implement and contains of very small part
 
 TELNET
 
-Telnet was used to access terminal on remote machine before SSH. It has been used historically by system administrator to monitor the system.In this project we will be making a small telnet server based on RUBY language from scratch. This is because we were not able to find any good library implementation of telnet server on the internet being old.
-
-So our telnet server would simply use socket to accept all the connection and then interact with the client in order to provide them with system shell . The system shell can enable them to modify call and terminate any process running on the raspbery pi at that instance.
+Telnet was used to access terminal on remote machine before SSH.In this project we will be making a small telnet server based on RUBY language from scratch.
 
 Basic modules of Telnet are as follows:
 
