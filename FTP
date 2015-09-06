@@ -1,0 +1,13 @@
+FTP protocol
+
+FTP or better known as file transfer protocol is very popular for hosting files on a server. We will be coding this project on python because of lack of implementation for this protocol in C++. The module that we will be using for this library is pyftpdlib which is a python abstraction around the FTP server.
+
+Modules
+
+Being in python this is very simple to implement and contains of very small part of codes being written. The following steps are as the program will react to
+
+1> Add all users along with permissions to where there accesible to .
+
+2> Add directory for anonymous logins.
+
+3> Start the FTP server.
