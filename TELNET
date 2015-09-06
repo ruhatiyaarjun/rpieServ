@@ -2,4 +2,12 @@ TELNET
 
 Telnet was used to access terminal on remote machine before SSH. It has been used historically by system administrator to monitor the system.In this project we will be making a small telnet server based on RUBY language from scratch. This is because we were not able to find any good library implementation of telnet server on the internet being old.
 
-So our telnet server would simply use socket to accept all the connection and then interact with the client in order to provode them with system shell . The system shell can enable them to modify call and terminate any process running on the raspbery pi at that instance.
+So our telnet server would simply use socket to accept all the connection and then interact with the client in order to provide them with system shell . The system shell can enable them to modify call and terminate any process running on the raspbery pi at that instance.
+
+Basic modules of Telnet are as follows:
+
+1> Socket server which is responsible for listening to all the connection requests to the server and sending back the response.
+
+2> Processing engine which is responsible for interpreting and running the commands that are sent by the end user.
+
+
