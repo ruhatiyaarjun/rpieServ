@@ -1,0 +1,15 @@
+HTTP Protocol
+
+Http protocol is responsible for powering up the entire internet architecture. Powerful servers like Apache and NGINX implement these protocols and host a vast variety of content online. Http protocol commonly runs on port 80. Http is the foundation of data communication for the www. The standards development of http was coordinated by the internet engineering task force (IETF) and the world wide web consortium (W3C) culminating in a publication of a series of request for comments (RFCs).
+
+Implementation
+
+We would follow the implementation of this using Microhttpd library implementation which is an already laid down open source implementation for the http protocol written in C language. Also a plugin system is a must for these kinds of softwares which should be fault tolerant hence we decide on creating a plugin system with JS as the prefered language for both writing the plugins as well as websites for the server. In order to implement the JS virtualization with our application we use duktape which is a JS library. 
+
+The flow for the lifetime of the application would be as follows:
+
+1> The server would receive a request from the client which would be following proper RFC as laid down by the W3C. The microhttpd library runs as a daemon on the server and the request is then parsed by its internal engine which comes out to us by its internal API. Its internal API provides us with a callback function method. This callback function method is responsible for handling all the HTTP request from the client all in separate threads. The parameters received by the callback function are all parsed by the internals of the microhttpd library.
+
+2> This step consists of the JS plugin implementation. For each thread or request a JS context will be created which would then be responsible for proper handling of the http request that originated from the client.
+
+3> The response text from the JS engine acts as the output to the browser and therefore would be passed on back to the buffer stream output of the microhttpd library which has the responsibility of sending it back to the client.
